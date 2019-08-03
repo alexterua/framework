@@ -6,13 +6,36 @@ namespace Framework\Http;
 
 class Request
 {
+    private $queryParams;
+    private $parsedBody;
+
+    public function __construct(array $queryParams = [], $parsedBody = null)
+    {
+        $this->queryParams = $queryParams;
+        $this->parsedBody = $parsedBody;
+    }
+
     public function getQueryParams(): array
     {
-        return $_GET;
+        return $this->queryParams;
+    }
+
+    public function setQueryParams(array $query): self
+    {
+        $new = clone $this;
+        $new->queryParams = $query;
+        return $new;
     }
 
     public function getParsedBody()
     {
-        return $_POST ?: null;
+        return $this->parsedBody;
+    }
+
+    public function setParsedBody(array $data): self
+    {
+        $new = clone $this;
+        $new->parsedBody = $data;
+        return $new;
     }
 }
