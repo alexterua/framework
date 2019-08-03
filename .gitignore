@@ -1,2 +1,4 @@
 .idea
-xxx/
+vendor
+xxx
+phpunit.xml
