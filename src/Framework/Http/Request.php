@@ -20,7 +20,7 @@ class Request
         return $this->queryParams;
     }
 
-    public function setQueryParams(array $query): self
+    public function withQueryParams(array $query): self
     {
         $new = clone $this;
         $new->queryParams = $query;
@@ -32,7 +32,7 @@ class Request
         return $this->parsedBody;
     }
 
-    public function setParsedBody(array $data): self
+    public function withParsedBody(array $data): self
     {
         $new = clone $this;
         $new->parsedBody = $data;
